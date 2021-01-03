@@ -1,110 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./index.css" rel="stylesheet">
-    <title>Exam</title>
-</head>
-
-<body>
-    <div class="main">
-
-        <form action="" method="POST" class="form" id="form-1">
-          <h3 class="heading">Thành viên đăng ký</h3>
-  
-          <div class="spacer"></div>
-  
-          <div class="form-group">
-            <label for="fullname" class="form-label">Tên đầy đủ</label>
-            <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="password" class="form-label">Mật khẩu</label>
-            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <button class="form-submit">Đăng ký</button>
-        </form>
-  
-        <form action="" method="POST" class="form" id="form-2">
-          <h3 class="heading">Đăng nhập</h3>
-  
-          <div class="spacer"></div>
-  
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="password" class="form-label">Mật khẩu</label>
-            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <button class="form-submit">Đăng nhập</button>
-        </form>
-  
-      </div>
-      
-      <script>
-  
-        document.addEventListener('DOMContentLoaded', function () {
-          // Mong muốn của chúng ta
-          Validator({
-            form: '#form-1',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-              Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-              Validator.isEmail('#email'),
-              Validator.minLength('#password', 6),
-              Validator.isRequired('#password_confirmation'),
-              Validator.isConfirmed('#password_confirmation', function () {
-                return document.querySelector('#form-1 #password').value;
-              }, 'Mật khẩu nhập lại không chính xác')
-            ],
-            onSubmit: function (data) {
-              // Call API
-              console.log(data);
-            }
-          });
-  
-  
-          Validator({
-            form: '#form-2',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-              Validator.isEmail('#email'),
-              Validator.minLength('#password', 6),
-            ],
-            onSubmit: function (data) {
-              // Call API
-              console.log(data);
-            }
-          });
-        });
-  
-      </script>s
-</body>
-
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+		<title>A simple calculator</title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="calculator">
+				<div id="result">
+					<div id="history">
+						<p id="history-value"></p>
+					</div>
+					<div id="output">
+						<p id="output-value"></p>
+					</div>
+				</div>
+				<div id="keyboard">
+					<button class="operator" id="clear">C</button>
+					<button class="operator" id="backspace">CE</button>
+					<button class="operator" id="%">%</button>
+					<button class="operator" id="/">&#247;</button>
+					<button class="number" id="7">7</button>
+					<button class="number" id="8">8</button>
+					<button class="number" id="9">9</button>
+					<button class="operator" id="*">&times;</button>
+					<button class="number" id="4">4</button>
+					<button class="number" id="5">5</button>
+					<button class="number" id="6">6</button>
+					<button class="operator" id="-">-</button>
+					<button class="number" id="1">1</button>
+					<button class="number" id="2">2</button>
+					<button class="number" id="3">3</button>
+					<button class="operator" id="+">+</button>
+					<button class="empty" id="empty"></button>
+					<button class="number" id="0">0</button>
+					<button class="empty" id="empty"></button>
+					<button class="operator" id="=">=</button>
+				</div>
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
 </html>
